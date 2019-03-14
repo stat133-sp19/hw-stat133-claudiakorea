@@ -1,0 +1,8 @@
+---
+title: "workout01-claudia-korea"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
