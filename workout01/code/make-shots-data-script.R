@@ -15,7 +15,7 @@ curry <- read.csv("C:/Users/CK/Documents/stat133/hw-stat133/workout01/data/steph
 
 
 iguodala$name <- "Andre Iguodala"
-green$name <- "Graymond Green"
+green$name <- "Draymond Green"
 durant$name <- "Kevin Durant"
 thompson$name <- "Klay Thompson"
 curry$name <- "Stephen Curry"
@@ -45,7 +45,7 @@ sink("C:/Users/CK/Documents/stat133/hw-stat133/workout01/output/andre-iguodala-s
 summary(iguodala)
 sink()
 
-sink("C:/Users/CK/Documents/stat133/hw-stat133/workout01/output/graymond-green-summary.txt" )
+sink("C:/Users/CK/Documents/stat133/hw-stat133/workout01/output/draymond-green-summary.txt" )
 summary(green)
 sink()
 

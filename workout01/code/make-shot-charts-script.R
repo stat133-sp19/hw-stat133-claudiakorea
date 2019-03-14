@@ -32,8 +32,8 @@ stephen_shot_chart <- ggplot(data = curry) + annotation_custom(court_image, -250
 ggsave("stephen-curry-shot-chart.pdf", plot = stephen_shot_chart, path = "C:/Users/CK/Documents/stat133/hw-stat133/workout01/images")
 
 players_shot_chart <- ggplot(data = players) + annotation_custom(court_image, -250, 250, -50, 420)+ geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Chart: GSW (2016 season)') + facet_wrap(~ name)
-ggsave("gsw-shot-chart.pdf", plot = stephen_shot_chart, path = "C:/Users/CK/Documents/stat133/hw-stat133/workout01/images", width = 8, height = 7)
-ggsave("gsw-shot-chart.png", plot = stephen_shot_chart, path = "C:/Users/CK/Documents/stat133/hw-stat133/workout01/images", width = 8, height = 7)
+ggsave("gsw-shot-chart.pdf", plot = players_shot_chart, path = "C:/Users/CK/Documents/stat133/hw-stat133/workout01/images", width = 8, height = 7)
+ggsave("gsw-shot-chart.png", plot = players_shot_chart, path = "C:/Users/CK/Documents/stat133/hw-stat133/workout01/images", width = 8, height = 7)
 
 
 
