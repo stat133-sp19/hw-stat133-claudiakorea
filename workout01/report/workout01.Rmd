@@ -1,0 +1,28 @@
+---
+title: "Workout 1"
+author: "Claudia Korea"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(readr)
+```
+
+```{r out.width = '80%', echo = FALSE, fig.align='center'}
+knitr::include_graphics('C:/Users/CK/Documents/stat133/hw-stat133/workout01/images/gsw-shot-chart.png')
+
+```
+
+```{r}
+gsw <- read.csv('C:/Users/CK/Documents/stat133/hw-stat133/workout01/data/shots-data.csv')
+
+two_pt_shooting <- arrange(summarise(group_by(gsw, name), total = sum(shot_type == "2PT Field Goal"), made = sum(shot_type == "2PT Field Goal" & shot_made_flag == "shot_yes"), perc_made = made/total), desc(perc_made))
+
+
+three_pt_shooting <- arrange(summarise(group_by(gsw, name), total = sum(shot_type == "3PT Field Goal"), made = sum(shot_type == "3PT Field Goal" & shot_made_flag == "shot_yes"), perc_made = made/total), desc(perc_made))
+
+total_shooting <- arrange(summarise(group_by(gsw, name), total = sum(shot_type == "2PT Field Goal" | shot_type == "3PT Field Goal"), made = sum( shot_made_flag == "shot_yes"), perc_made = made/total), desc(perc_made))
+```
+

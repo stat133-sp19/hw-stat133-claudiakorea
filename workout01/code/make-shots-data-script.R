@@ -64,5 +64,5 @@ sink()
 
 players <- rbind(iguodala, green, durant, thompson, curry)
 
-write.table(players,file = "C:/Users/CK/Documents/stat133/hw-stat133/workout01/data/shots-data.csv" )
+write.csv(players,file = "C:/Users/CK/Documents/stat133/hw-stat133/workout01/data/shots-data.csv" )
 
