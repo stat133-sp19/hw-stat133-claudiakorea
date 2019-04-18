@@ -121,7 +121,11 @@ server <- function(input, output) {
        }
       dat <- do.call("rbind", scenarios)
       
-      ggplot(dat, aes(x = year)) 
+      ggplot(dat, aes(year)) + geom_line(aes(y = no_contrib, color = 'no_contrib'))+
+        geom_line(aes(y = fixed_contrib, color = "fixed_contrib")) + geom_line(aes(y = growing_contrib, color = "growing_contrib")) +  
+        geom_point(aes(y = fixed_contrib, color = "fixed_contrib")) + geom_point(aes(y = growing_contrib, color = "growing_contrib")) +  
+        geom_point(aes(y = no_contrib, color = 'no_contrib'))+ facet_wrap(~product) +
+        ggtitle("Three modes of investing")
       
      }
    })
