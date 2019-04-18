@@ -68,15 +68,19 @@ server <- function(input, output) {
      )
 
      for(y in 1:input$years){
-       fv <- input$initial * (1 + input$rate)** y
-       fva <- input$contrib * ((1 + input$rate)**y - 1) / input$rate
-      fvga <- input$contrib * ((1 + input$rate)**y - (1 + input$growth)**y) / (input$rate - input$growth)
+       rate <- input$rate/100
+       growth <- input$growth/100
+       fv <- input$initial * (1 + rate)** y
+       fva <- input$contrib * ((1 + rate)**y - 1) / rate
+      fvga <- input$contrib * ((1 + rate)**y - (1 + growth)**y) / (rate - growth)
        modalities$no_contrib[y + 1] <- fv
        modalities$fixed_contrib[y + 1] <- fv + fva
        modalities$growing_contrib[y + 1] <- fv + fvga
      }
       ggplot(modalities, aes(years)) + geom_line(aes(y = no_contrib, color = 'no_contrib'))+
         geom_line(aes(y = fixed_contrib, color = "fixed_contrib")) + geom_line(aes(y = growing_contrib, color = "growing_contrib")) +  
+        geom_point(aes(y = fixed_contrib, color = "fixed_contrib")) + geom_point(aes(y = growing_contrib, color = "growing_contrib")) +  
+        geom_point(aes(y = no_contrib, color = 'no_contrib'))+
         ggtitle("Three modes of investing")
    })
    
